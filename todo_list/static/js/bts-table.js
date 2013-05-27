@@ -305,6 +305,8 @@ BTS.SortableTableRow = Backbone.View.extend({
           var row = {};
           row.className = field.className;
           row.cid = this.model.cid;
+          row.field = field.field;
+          row.editable = field.editable;
 
           if(field.render){
             var value = field.field? this.model.get(field.field) : undefined;

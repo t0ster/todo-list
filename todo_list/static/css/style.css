@@ -36,3 +36,14 @@ body {
 table th {
   cursor: pointer;
 }
+table tr td.disabled {
+  text-decoration: line-through;
+  color: grey;
+}
+table tr td.disabled a:link,
+table tr td.disabled a:visited,
+table tr td.disabled a:hover,
+table tr td.disabled a:active {
+    text-decoration: none;
+    color: grey;
+  }

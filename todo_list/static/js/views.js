@@ -3,7 +3,10 @@ app.TodoListView = Backbone.View.extend({
   template: _.template($('#todolist-template').html()),
   events: {
     'click #entry-down': 'entryDown',
-    'click #entry-up': 'entryUp'
+    'click #entry-up': 'entryUp',
+    'click #completed-checkbox': 'toggleComplete',
+    'click #add_entry': 'entryAdd',
+    'click #entry-delete': 'entryDelete'
   },
   priorityAscSort: false,
 
@@ -14,9 +17,10 @@ app.TodoListView = Backbone.View.extend({
       tableClass:'table table-bordered table-hover',
       collection: app.entries,
       col: [
-        {"name": "Entry", "field": "text"},
-        {"name": "Due Date", "field": "due_date"},
-        {"name": "Priority", "field": "priority"}
+        // {"name": "Completed", "field": "completed", "editable": true},
+        {"name": "Entry", "field": "text", "editable": true},
+        {"name": "Due Date", "field": "due_date", "editable": true},
+        {"name": "Priority", "field": "priority", "editable": false}
       ]
     });
 
@@ -31,7 +35,26 @@ app.TodoListView = Backbone.View.extend({
   },
 
   render: function(){
+    var self = this;
     this.todoTable.render();
+    $(".editable.text").editable();
+    $(".editable.due_date").editable({
+      type: "datetime",
+      format: "yyyy-mm-dd hh:ii"
+      // viewformat: "yyyy-mm-dd hh:ii"
+      // datetimepicker: {format: 'yyyy-mm-dd hh:ii'}
+    });
+    $('.editable').on('save', function(e, params) {
+        var entry_cid = self._getEntryCidFromEvent(e);
+        var entry = app.entries.get(entry_cid);
+        var field = $(e.currentTarget).data("field");
+        console.log(params);
+        if (moment(params.newValue).isValid())
+          params.newValue = moment(params.newValue).format("YYYY-MM-DD HH:mm");
+        entry.set(field, params.newValue);
+        entry.save();
+        self.render();
+    });
     return this;
   },
 
@@ -41,8 +64,8 @@ app.TodoListView = Backbone.View.extend({
 
   entryUpDown: function(e, up_or_down){
     var self = this;
-    entry_cid = this._getEntryCidFromEvent(e);
-    entry = app.entries.get(entry_cid);
+    var entry_cid = this._getEntryCidFromEvent(e);
+    var entry = app.entries.get(entry_cid);
     var sortFunc = function() {
       result = up_or_down === "down";
       if (!self.priorityAscSort)
@@ -66,6 +89,36 @@ app.TodoListView = Backbone.View.extend({
 
   entryUp: function(e){
     this.entryUpDown(e, "up");
+  },
+
+  toggleComplete: function(e){
+    var entry = app.entries.get(this._getEntryCidFromEvent(e));
+    entry.set('completed', !entry.get('completed'));
+    entry.save();
+    this.render();
+  },
+
+  entryAdd: function(e) {
+    var priority = app.entries.last() ? app.entries.last().get("priority") + 1 : 1;
+    app.entries.create({"priority": priority});
+    this.todoTable.collection.sortBy('priority', true);
+    this.render();
+  },
+
+  _recalculatePriorities: function(){
+    var i = 1;
+    app.entries.each(function(entry){
+      entry.set('priority', i);
+      entry.save();
+      i++;
+    });
+  },
+
+  entryDelete: function(e){
+    var entry = app.entries.get(this._getEntryCidFromEvent(e));
+    entry.destroy();
+    this._recalculatePriorities();
+    this.render();
   }
 });
 
