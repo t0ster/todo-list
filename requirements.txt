@@ -1,0 +1,4 @@
+Django
+django-tastypie
+django-crispy-forms
+django-widget-tweaks

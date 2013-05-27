@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Template · Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/bootstrap-editable.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}ico/favicon.png">
+    <script type="text/template" id="entry-template">
+      <tr>
+        <td><%- text %></td>
+        <td><%- due_date %></td>
+      </tr>
+    </script>
+    <script type="text/template" id="todolist-template">
+      <table class="table table-hover">
+        <tr>
+          <th></th>
+          <th>Entry</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th></th>
+        </tr>
+        <% _.each(entries, function(entry) { %>
+            <tr>
+              <td><input data-id="<%= entry.id %>" type="checkbox"></td>
+              <td><%= entry.text %></td>
+              <td><%= entry.due_date %></td>
+              <td><%= entry.priority %></td>
+              <td>
+                <div class="btn-toolbar">
+                  <div class="btn-group">
+                    <a id="entry-down" data-id="<%= entry.id %>" class="btn" href="#"><i class="icon-arrow-down"></i></a>
+                    <a id="entry-up" data-id="<%= entry.id %>" class="btn" href="#"><i class="icon-arrow-up"></i></a>
+                    <a id="entry-up" data-id="<%= entry.id %>" class="btn" href="#"><i class="icon-trash"></i></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+        <% }); %>
+      </table>
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">TODO List</h3>
+      </div>
+
+      <hr>
+
+      <div id="todo_list">
+        <table id="todoTable"></table>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>© Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/underscore.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/backbone.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/backbone-tastypie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-editable.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/mustache.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/bts-table.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/bts-expandable-table.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/templates.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/app.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/models.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/collections.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/views.js"></script>
+
+</body>
+</html>
