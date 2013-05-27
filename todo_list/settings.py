@@ -48,7 +48,7 @@ USE_I18N = True
 USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = False
+USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -85,7 +85,7 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'q^ai%%6f(_0tv6$ejt-tro(en69o-*dd6cd@kupla9$(y9e*fy'
 
-AUTHENTICATION_BACKENDS = ('todo_list.backends.EmailAuthBackend',)
+# AUTHENTICATION_BACKENDS = ('todo_list.backends.EmailAuthBackend',)
 LOGIN_URL = "/login/"
 
 # List of callables that know how to import templates from various sources.
@@ -118,11 +118,12 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    'tastypie',
     'crispy_forms',
     'widget_tweaks',
 

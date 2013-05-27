@@ -1,6 +1,5 @@
 app.TodoListView = Backbone.View.extend({
   el: '#todo_list',
-  template: _.template($('#todolist-template').html()),
   events: {
     'click #entry-down': 'entryDown',
     'click #entry-up': 'entryUp',
@@ -11,13 +10,11 @@ app.TodoListView = Backbone.View.extend({
   priorityAscSort: false,
 
   initialize: function(){
-    // entries =
     this.todoTable = new BTS.SortableTable({
       el: $('#todoTable'),
       tableClass:'table table-bordered table-hover',
       collection: app.entries,
       col: [
-        // {"name": "Completed", "field": "completed", "editable": true},
         {"name": "Entry", "field": "text", "editable": true},
         {"name": "Due Date", "field": "due_date", "editable": true},
         {"name": "Priority", "field": "priority", "editable": false}
@@ -41,19 +38,18 @@ app.TodoListView = Backbone.View.extend({
     $(".editable.due_date").editable({
       type: "datetime",
       format: "yyyy-mm-dd hh:ii"
-      // viewformat: "yyyy-mm-dd hh:ii"
-      // datetimepicker: {format: 'yyyy-mm-dd hh:ii'}
     });
     $('.editable').on('save', function(e, params) {
         var entry_cid = self._getEntryCidFromEvent(e);
         var entry = app.entries.get(entry_cid);
         var field = $(e.currentTarget).data("field");
-        console.log(params);
         if (moment(params.newValue).isValid())
           params.newValue = moment(params.newValue).format("YYYY-MM-DD HH:mm");
-        entry.set(field, params.newValue);
-        entry.save();
-        self.render();
+        if (entry.get(field) !== params.newValue) {
+          entry.set(field, params.newValue);
+          entry.save();
+          self.render();
+        }
     });
     return this;
   },

@@ -1,5 +1,6 @@
 from tastypie.resources import ModelResource
 from tastypie.authorization import DjangoAuthorization
+from tastypie.authentication import ApiKeyAuthentication
 
 from todo_list.core.models import Entry, TodoList
 
@@ -20,3 +21,4 @@ class EntryResource(ModelResource):
     class Meta:
         queryset = Entry.objects.all()
         authorization = DjangoAuthorization()
+        authentication = ApiKeyAuthentication()

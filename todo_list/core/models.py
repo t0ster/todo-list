@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tastypie.models import create_api_key
 
 
 class TodoList(models.Model):
@@ -25,3 +26,12 @@ class Entry(models.Model):
 
     def __unicode__(self):
         return self.text
+
+
+def create_todo_list(sender, **kwargs):
+    if kwargs.get('created') is True:
+        TodoList.objects.create(user=kwargs.get('instance'))
+
+
+models.signals.post_save.connect(create_api_key, sender=User)
+models.signals.post_save.connect(create_todo_list, sender=User)
