@@ -1,0 +1,548 @@
+[
+{
+  "pk": 1, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "permission", 
+    "name": "permission", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 2, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "group", 
+    "name": "group", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 3, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "user", 
+    "name": "user", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 4, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "contenttype", 
+    "name": "content type", 
+    "app_label": "contenttypes"
+  }
+},
+{
+  "pk": 5, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "session", 
+    "name": "session", 
+    "app_label": "sessions"
+  }
+},
+{
+  "pk": 6, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "logentry", 
+    "name": "log entry", 
+    "app_label": "admin"
+  }
+},
+{
+  "pk": 7, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "apiaccess", 
+    "name": "api access", 
+    "app_label": "tastypie"
+  }
+},
+{
+  "pk": 8, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "apikey", 
+    "name": "api key", 
+    "app_label": "tastypie"
+  }
+},
+{
+  "pk": 9, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "todolist", 
+    "name": "todo list", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 10, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "entry", 
+    "name": "entry", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": "oz4vibuc6mgnited0pfqdjvs27anycy0", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2013-06-10T16:12:49.775Z", 
+    "session_data": "MjZmYzM4Mjk2OTZjMGVlODM5ZjNhMzBkOWYwYmJlNGEyZDViZTU2ZTqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEDVQ1fYXV0aF91c2VyX2lkcQRLAnUu"
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 1, 
+    "text": "", 
+    "todo_list": 1, 
+    "completed": false, 
+    "due_date": null
+  }
+},
+{
+  "pk": 2, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 1, 
+    "text": "Buy Milk", 
+    "todo_list": 1, 
+    "completed": false, 
+    "due_date": null
+  }
+},
+{
+  "pk": 3, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 1, 
+    "text": "Buy Milk", 
+    "todo_list": 1, 
+    "completed": false, 
+    "due_date": "2013-05-27T23:55:00Z"
+  }
+},
+{
+  "pk": 4, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 2, 
+    "text": "", 
+    "todo_list": 1, 
+    "completed": false, 
+    "due_date": null
+  }
+},
+{
+  "pk": 5, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 2, 
+    "text": "Buy soap", 
+    "todo_list": 1, 
+    "completed": false, 
+    "due_date": null
+  }
+},
+{
+  "pk": 6, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 2, 
+    "text": "Buy soap", 
+    "todo_list": 1, 
+    "completed": false, 
+    "due_date": "2013-05-31T19:00:00Z"
+  }
+},
+{
+  "pk": 7, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 1, 
+    "text": "Buy milk", 
+    "todo_list": 1, 
+    "completed": false, 
+    "due_date": "2013-05-27T23:55:00Z"
+  }
+},
+{
+  "pk": 8, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 2, 
+    "text": "Buy soap", 
+    "todo_list": 1, 
+    "completed": true, 
+    "due_date": "2013-05-31T19:00:00Z"
+  }
+},
+{
+  "pk": 11, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 1, 
+    "text": "Call Kate!", 
+    "todo_list": 2, 
+    "completed": false, 
+    "due_date": "2013-05-28T23:00:00Z"
+  }
+},
+{
+  "pk": 16, 
+  "model": "core.entry", 
+  "fields": {
+    "priority": 2, 
+    "text": "Buy bread", 
+    "todo_list": 2, 
+    "completed": false, 
+    "due_date": "2013-05-31T19:00:00Z"
+  }
+},
+{
+  "pk": 1, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_permission", 
+    "name": "Can add permission", 
+    "content_type": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_permission", 
+    "name": "Can change permission", 
+    "content_type": 1
+  }
+},
+{
+  "pk": 3, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_permission", 
+    "name": "Can delete permission", 
+    "content_type": 1
+  }
+},
+{
+  "pk": 4, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_group", 
+    "name": "Can add group", 
+    "content_type": 2
+  }
+},
+{
+  "pk": 5, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_group", 
+    "name": "Can change group", 
+    "content_type": 2
+  }
+},
+{
+  "pk": 6, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_group", 
+    "name": "Can delete group", 
+    "content_type": 2
+  }
+},
+{
+  "pk": 7, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_user", 
+    "name": "Can add user", 
+    "content_type": 3
+  }
+},
+{
+  "pk": 8, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_user", 
+    "name": "Can change user", 
+    "content_type": 3
+  }
+},
+{
+  "pk": 9, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_user", 
+    "name": "Can delete user", 
+    "content_type": 3
+  }
+},
+{
+  "pk": 10, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_contenttype", 
+    "name": "Can add content type", 
+    "content_type": 4
+  }
+},
+{
+  "pk": 11, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_contenttype", 
+    "name": "Can change content type", 
+    "content_type": 4
+  }
+},
+{
+  "pk": 12, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_contenttype", 
+    "name": "Can delete content type", 
+    "content_type": 4
+  }
+},
+{
+  "pk": 13, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_session", 
+    "name": "Can add session", 
+    "content_type": 5
+  }
+},
+{
+  "pk": 14, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_session", 
+    "name": "Can change session", 
+    "content_type": 5
+  }
+},
+{
+  "pk": 15, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_session", 
+    "name": "Can delete session", 
+    "content_type": 5
+  }
+},
+{
+  "pk": 16, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_logentry", 
+    "name": "Can add log entry", 
+    "content_type": 6
+  }
+},
+{
+  "pk": 17, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_logentry", 
+    "name": "Can change log entry", 
+    "content_type": 6
+  }
+},
+{
+  "pk": 18, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_logentry", 
+    "name": "Can delete log entry", 
+    "content_type": 6
+  }
+},
+{
+  "pk": 19, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_apiaccess", 
+    "name": "Can add api access", 
+    "content_type": 7
+  }
+},
+{
+  "pk": 20, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_apiaccess", 
+    "name": "Can change api access", 
+    "content_type": 7
+  }
+},
+{
+  "pk": 21, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_apiaccess", 
+    "name": "Can delete api access", 
+    "content_type": 7
+  }
+},
+{
+  "pk": 22, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_apikey", 
+    "name": "Can add api key", 
+    "content_type": 8
+  }
+},
+{
+  "pk": 23, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_apikey", 
+    "name": "Can change api key", 
+    "content_type": 8
+  }
+},
+{
+  "pk": 24, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_apikey", 
+    "name": "Can delete api key", 
+    "content_type": 8
+  }
+},
+{
+  "pk": 25, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_todolist", 
+    "name": "Can add todo list", 
+    "content_type": 9
+  }
+},
+{
+  "pk": 26, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_todolist", 
+    "name": "Can change todo list", 
+    "content_type": 9
+  }
+},
+{
+  "pk": 27, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_todolist", 
+    "name": "Can delete todo list", 
+    "content_type": 9
+  }
+},
+{
+  "pk": 28, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_entry", 
+    "name": "Can add entry", 
+    "content_type": 10
+  }
+},
+{
+  "pk": 29, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_entry", 
+    "name": "Can change entry", 
+    "content_type": 10
+  }
+},
+{
+  "pk": 30, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_entry", 
+    "name": "Can delete entry", 
+    "content_type": 10
+  }
+},
+{
+  "pk": 1, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "user1", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2013-05-27T16:11:19.866Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$Cp504bmh3MSK$CNAXS+2ZcPmC38sV5qqyhY/Khh3yYoURlKdHKEqaeAo=", 
+    "email": "user1@user1.com", 
+    "date_joined": "2013-05-27T16:10:51.835Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "user2", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2013-05-27T16:12:49.773Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$rJwuZ6svu4LQ$q34SXqySMw/yW+pu3mae9+p0+t6/+Of9O7mUiOMQ0K8=", 
+    "email": "user2@user.com", 
+    "date_joined": "2013-05-27T16:11:04.796Z"
+  }
+},
+{
+  "pk": 1, 
+  "model": "tastypie.apikey", 
+  "fields": {
+    "user": 1, 
+    "key": "618a8ad5cc54418f0eaa856e09af8ab405608c61", 
+    "created": "2013-05-27T16:10:51.988Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "tastypie.apikey", 
+  "fields": {
+    "user": 2, 
+    "key": "b88dcbd63543e2c74f19cfff3db8b95296dd28eb", 
+    "created": "2013-05-27T16:11:04.950Z"
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.todolist", 
+  "fields": {
+    "user": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "core.todolist", 
+  "fields": {
+    "user": 2
+  }
+}
+]
